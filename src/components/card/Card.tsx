@@ -7,12 +7,13 @@ import ThreeDotsIcon from '../../assets/icons/ThreeDotsIcon'
 
 interface Props {
   post: Post
+  handlerRemovePost: () => void
 }
 
-const Card = ({ post }: Props) => {
+const Card = ({ post, handlerRemovePost }: Props) => {
   const items: MenuProps['items'] = [
     { label: 'Edit', key: crypto.randomUUID(), onClick: () => console.log('Edit') },
-    { label: 'Delete', key: crypto.randomUUID(), onClick: () => console.log('Delete') }
+    { label: 'Delete', key: crypto.randomUUID(), onClick: handlerRemovePost }
   ]
 
   return (
