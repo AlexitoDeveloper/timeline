@@ -28,6 +28,7 @@ module.exports = {
         "import/no-absolute-path": "off",
         "@typescript-eslint/explicit-function-return-type": "off",
         "@typescript-eslint/no-confusing-void-expression": "off",
-        "@typescript-eslint/no-floating-promises": "off"
+        "@typescript-eslint/no-floating-promises": "off",
+        "no-tabs": "off"
     }
 }
