@@ -1,24 +1,12 @@
-import { useState, useEffect } from 'react'
 import Card from '../components/card/Card'
-import { type Post } from '../interfaces/Post'
-import { getPosts } from '../services/posts'
 import './Timeline.scss'
+import useTimeline from '../hooks/useTimeline'
 
 const Timeline = () => {
-  const [posts, setPosts] = useState<Post[]>([])
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const response = await getPosts()
-      setPosts(response)
-    }
-
-    fetchPosts()
-  }, [])
-
+  const { posts, handlerRemovePost } = useTimeline()
   return (
     <section>
-      {posts?.map(post => (<Card post={post} key={post.id} />))}
+      {posts?.map(post => (<Card key={post.id} post={post} handlerRemovePost={() => handlerRemovePost(post.id)} />))}
     </section>
   )
 }
