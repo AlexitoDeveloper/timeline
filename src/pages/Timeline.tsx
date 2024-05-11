@@ -3,10 +3,22 @@ import './Timeline.scss'
 import useTimeline from '../hooks/useTimeline'
 
 const Timeline = () => {
-  const { posts, handlerRemovePost } = useTimeline()
+  const { posts, handlerRemovePost, isLoading } = useTimeline()
+
+  const renderLoader = () => {
+    return <p>Loading...</p>
+  }
+
+  const renderPosts = () => {
+    if (posts.length === 0) return <p>No posts published</p>
+
+    return posts.map(post => <Card key={post.id} post={post} handlerRemovePost={() => handlerRemovePost(post.id)} />)
+  }
+
   return (
     <section>
-      {posts?.map(post => (<Card key={post.id} post={post} handlerRemovePost={() => handlerRemovePost(post.id)} />))}
+      {isLoading && renderLoader()}
+			{!isLoading && renderPosts()}
     </section>
   )
 }
