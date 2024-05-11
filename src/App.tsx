@@ -1,25 +1,10 @@
-import { useEffect, useState } from 'react'
 import './App.scss'
-import { getPosts } from './services/posts'
-import { type Post } from './interfaces/Post'
+import Timeline from './pages/Timeline'
 
 const App = () => {
-  const [posts, setPosts] = useState<Post[]>([])
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const response = await getPosts()
-      setPosts(response)
-    }
-
-    fetchPosts()
-  }, [])
-
   return (
     <main>
-      <ul>
-        {posts?.map(post => (<li key={post.id}>{post.title}</li>))}
-      </ul>
+      <Timeline />
     </main>
   )
 }
