@@ -1,30 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useEffect, useState } from 'react'
+import './App.scss'
+import { getPosts } from './services/posts'
+import { type Post } from './interfaces/Post'
 
 const App = () => {
-  const [count, setCount] = useState(0)
+  const [posts, setPosts] = useState<Post[]>([])
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const response = await getPosts()
+      setPosts(response)
+    }
+
+    fetchPosts()
+  }, [])
 
   return (
-    <>
-      <div>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => { setCount((count) => count + 1) }}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <main>
+      <ul>
+        {posts?.map(post => (<li key={post.id}>{post.title}</li>))}
+      </ul>
+    </main>
   )
 }
 
