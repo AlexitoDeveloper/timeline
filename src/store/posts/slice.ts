@@ -4,11 +4,13 @@ import { type Post } from '../../interfaces/Post'
 interface PostsState {
   posts: Post[]
   isLoading: boolean
+  selectedPost: Post | null
 }
 
 const initialState: PostsState = {
   posts: [],
-  isLoading: true
+  isLoading: true,
+  selectedPost: null
 }
 
 export const postsSlice = createSlice({
@@ -23,9 +25,18 @@ export const postsSlice = createSlice({
     },
     setIsLoading: (state, action: PayloadAction<boolean>) => {
       state.isLoading = action.payload
+    },
+    editPost: (state, action: PayloadAction<Post>) => {
+      state.posts = state.posts.map((post) => {
+        if (post.id === action.payload.id) return action.payload
+        return post
+      })
+    },
+    setSelectedPost: (state, action: PayloadAction<Post | null>) => {
+      state.selectedPost = action.payload
     }
   }
 })
 
 export default postsSlice.reducer
-export const { setPosts, removePost, setIsLoading } = postsSlice.actions
+export const { setPosts, removePost, setIsLoading, editPost, setSelectedPost } = postsSlice.actions

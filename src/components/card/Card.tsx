@@ -8,11 +8,12 @@ import ThreeDotsIcon from '../../assets/icons/ThreeDotsIcon'
 interface Props {
   post: Post
   handlerRemovePost: () => void
+  openEditPost: () => void
 }
 
-const Card = ({ post, handlerRemovePost }: Props) => {
+const Card = ({ post, handlerRemovePost, openEditPost }: Props) => {
   const items: MenuProps['items'] = [
-    { label: 'Edit', key: crypto.randomUUID(), onClick: () => console.log('Edit') },
+    { label: 'Edit', key: crypto.randomUUID(), onClick: openEditPost },
     { label: 'Delete', key: crypto.randomUUID(), onClick: handlerRemovePost }
   ]
 
