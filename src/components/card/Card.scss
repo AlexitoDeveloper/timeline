@@ -1,0 +1,76 @@
+@import "src/styles/variables";
+
+.card {
+	border-radius: 0.5rem;
+	padding: 1.25rem;
+	background-color: $primary-blue-1;
+	width: 100%;
+	box-sizing: border-box;
+
+	&__header {
+		font-weight: 600;
+		padding-bottom: 1rem;
+		width: 100%;
+
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+
+		&--avatar {
+			max-width: 2rem;
+			max-height: 2rem;
+			border-radius: 50%;
+			background-color: $white;
+		}
+
+		&--user {
+			color: $primary-light-green-1;
+			cursor: pointer;
+
+			&:hover {
+				color: $white;
+			}
+		}
+
+		&--title {
+			max-width: 100%; 
+			white-space: nowrap; 
+			overflow: hidden; 
+			text-overflow: ellipsis;
+			
+			&::first-letter {
+				text-transform: uppercase;
+			}
+		}
+
+		&--dropdown {
+			margin-left: auto;
+			width: 1.25rem;
+			height: 1.25rem;
+			cursor: pointer;
+
+			svg {
+				width: 1.25rem;
+				height: 1.25rem;
+			}
+		}
+	}
+
+	&__body {
+		background-color: $primary-blue-2;
+		padding: 0.5rem 1rem;
+		border-radius: 0.5rem;
+
+		> p {
+			&::first-letter {
+				text-transform: uppercase;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.card {
+		width: 768px !important;
+	}
+}

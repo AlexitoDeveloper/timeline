@@ -1,0 +1,27 @@
+@import "src/styles/variables";
+
+.skeleton-card {
+	border-radius: 0.5rem;
+	padding: 1.25rem;
+	background-color: $primary-blue-1;
+	width: 100%;
+	box-sizing: border-box;
+
+	.ant-skeleton-avatar {
+    background-color: $light-gray !important; 
+  }
+
+	.ant-skeleton-title {
+    background-color: $light-gray !important; 
+  }
+
+	.ant-skeleton-paragraph > li {
+    background-color: $light-gray !important; 
+  }
+}
+
+@media screen and (min-width: 768px) {
+	.skeleton-card {
+		width: 768px !important;
+	}
+}

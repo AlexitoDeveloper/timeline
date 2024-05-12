@@ -1,0 +1,53 @@
+@import "src/styles/variables";
+
+nav {
+	position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
+	height: 70px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1.25rem;
+	background-color: $primary-light-green-1;
+	width: 100%;
+	box-sizing: border-box;
+	color: $primary-blue-1;
+
+	> h2 {
+		margin: 0;
+		margin-right: 1.5rem;
+		cursor: pointer;
+		transition: text-decoration 0.3s ease;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	> div {
+		display: flex;
+		gap: 1rem;
+		font-weight: bold;
+
+		> span {
+			transition: text-decoration 0.3s ease;
+
+			&:hover {
+				text-decoration: underline;
+				cursor: pointer;
+			}
+		}
+	}
+
+	> img {
+		width: 2.5rem;
+		height: 2.5rem;
+		border-radius: 50%;
+		cursor: pointer;
+		background-color: $white;
+	}
+}
