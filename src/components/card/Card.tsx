@@ -24,7 +24,7 @@ const Card = ({ post, handlerRemovePost, openEditPost }: Props) => {
 				<span className='card__header--user'>@{`User_${post.userId}`}</span>
 				<span className='card__header--title'>{post.title}</span>
 				<Dropdown menu={{ items }} trigger={['click']} placement='bottomRight' className='card__header--dropdown'>
-          <i><ThreeDotsIcon color='white' /></i>
+          <i data-testid="dropdown-button"><ThreeDotsIcon color='white' /></i>
         </Dropdown>
 			</header>
 			<div className='card__body'>
