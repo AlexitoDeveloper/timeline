@@ -31,6 +31,7 @@ module.exports = {
         "@typescript-eslint/no-floating-promises": "off",
         "no-tabs": "off",
         "@typescript-eslint/strict-boolean-expressions": "off",
-        "@typescript-eslint/no-unsafe-argument": "off"
+        "@typescript-eslint/no-unsafe-argument": "off",
+        "@typescript-eslint/no-unnecessary-type-assertion": "off"
     }
 }

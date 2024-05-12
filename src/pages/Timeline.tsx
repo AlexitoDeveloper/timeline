@@ -22,7 +22,7 @@ const Timeline = () => {
   }
 
   return (
-    <section>
+    <section data-testid="timeline">
       {isLoading && renderLoader()}
 			{!isLoading && renderPosts()}
     </section>

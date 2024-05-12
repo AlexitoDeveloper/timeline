@@ -22,6 +22,12 @@ const EditCard = ({ post, handlerEditPost, closeEditPost }: Props) => {
     closeEditPost()
   }
 
+  const handleCancel = () => {
+    setTitle(post.title)
+    setBody(post.body)
+    closeEditPost()
+  }
+
   return (
     <form onSubmit={handleSubmit}>
 			<article className='edit-card'>
@@ -34,6 +40,7 @@ const EditCard = ({ post, handlerEditPost, closeEditPost }: Props) => {
 					<TextArea name='body' value={body} placeholder='Write a body content...' onChange={(e) => setBody(e.target.value)} required />
 				</div>
 				<div className='edit-card__footer'>
+					<button type='button' onClick={handleCancel}>Cancel</button>
 					<button type='submit'>Save</button>
 				</div>
 			</article>
